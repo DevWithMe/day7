@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block main %}
+  <h1>To-do list</h1>
+  <ul>
+    {% for item in items %}
+      <li>
+        {{ item }}
+        <button type="button" onclick="location.assign('/delete/{{ item }}')">Delete this Item</button>
+      </li>
+    {% endfor %}
+  </ul>
+  <form method="POST" action="/add">
+    <input type="text" placeholder="Add New Item" name="item">
+    <input type="submit">
+  </form>
+{% endblock %}
